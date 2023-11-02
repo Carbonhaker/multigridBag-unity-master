@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ffe8cc29942c6f479ab04a7243407c6, type: 3}
   m_Name: BagRendererMainSetting
   m_EditorClassIdentifier: 
-  space: 1
-  cellNodeSize: {x: 8, y: 8}
+  space: 2
+  cellNodeSize: {x: 40, y: 40}

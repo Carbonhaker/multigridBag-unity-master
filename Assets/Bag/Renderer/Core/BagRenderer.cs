@@ -15,17 +15,18 @@ namespace CH.MultigridBag.Renderer
         private Transform emptyObjectParent;
         [Header("物品显示")]
         [SerializeField]
-        private CellBagItemView<T> itemViewPrefab;
-        private List<CellBagItemView<T>> curPools = new List<CellBagItemView<T>>();
+        public CellBagItemView<T> itemViewPrefab;
         [SerializeField]
         private Transform itemViewObjectParent;
         [Header("一键整理")]
         [SerializeField]
         private Button sortButton;
-        [Header("Debug")]
-        [SerializeField]
+        //[Header("Debug")]
+        //[SerializeField]
         private GameObject debugSign;
 #pragma warning restore 0649
+
+        private List<CellBagItemView<T>> curPools = new List<CellBagItemView<T>>();
         private BagData<T> bagData;// 背包数据
         public BagData<T> BagData
         {
@@ -141,10 +142,14 @@ namespace CH.MultigridBag.Renderer
         {
             BagRendererMainSetting bagRendererMainSetting = BagRendererMainSetting.SettingFile;
             //debugSign.transform.position = worldPosition;
-            debugSign.transform.localPosition = emptyObjectParent.InverseTransformPoint(worldPosition);
+            if (debugSign) 
+            {
+                debugSign.transform.localPosition = emptyObjectParent.InverseTransformPoint(worldPosition);
+            }
+
             Vector2 curLerpPosition = emptyObjectParent.InverseTransformPoint(worldPosition);// - emptyObjectParent.transform.localPosition;
 
-            Debug.Log(curLerpPosition);
+            //Debug.Log(curLerpPosition);
             int indexX = (int)(curLerpPosition.x / bagRendererMainSetting.cellNodeSize.x - 0.5f);
             int indexY = -(int)(curLerpPosition.y / bagRendererMainSetting.cellNodeSize.y + 0.5f);
             return new Vector2Int(indexX, indexY);

@@ -9,9 +9,11 @@ namespace CH.MultigridBag.Renderer
 {
     public class Example_BagRenderer : BagRenderer<ItemExampleData>
     {
-
+        [SerializeField]
+        private Example_CellBagItemView itemView;
         private void Start()
         {
+            base.itemViewPrefab = itemView;
             Init();
             ItemExampleData itemExampleData01 = new ItemExampleData("01", 2, 2);
             ItemExampleData itemExampleData02 = new ItemExampleData("02", 3, 3);
