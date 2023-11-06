@@ -3,9 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using CH.MultigridBag;
+using CH.MultigridBag.Renderer;
 using UnityEngine.EventSystems;
 
-namespace CH.MultigridBag.Renderer
+namespace CH.MultigridBag.Example
 {
     public class Example_BagRenderer : BagRenderer<ItemExampleData>
     {
@@ -15,8 +16,8 @@ namespace CH.MultigridBag.Renderer
         {
             base.itemViewPrefab = itemView;
             Init();
-            ItemExampleData itemExampleData01 = new ItemExampleData("01", 2, 2);
-            ItemExampleData itemExampleData02 = new ItemExampleData("02", 3, 3);
+            ItemExampleData itemExampleData01 = new ItemExampleData("小物体", 2, 2);
+            ItemExampleData itemExampleData02 = new ItemExampleData("大大大物体", 3, 3);
 
 
             BagData<ItemExampleData> bagData = new BagData<ItemExampleData>(9, 10);

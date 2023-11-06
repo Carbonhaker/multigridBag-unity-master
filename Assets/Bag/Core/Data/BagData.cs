@@ -145,7 +145,7 @@ namespace CH.MultigridBag
             //检查当前放置物品的位置是不是超出边界
             if (!IsInRange(posX,posY, curItem.Width,curItem.Height)) 
             {
-                cellBagItem = null;
+                cellBagItem = new CellBagItem<T>(curItem,count);
                 return false;
             }
             cellBagItem = null;

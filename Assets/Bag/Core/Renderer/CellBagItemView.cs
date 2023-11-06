@@ -30,6 +30,7 @@ namespace CH.MultigridBag.Renderer
 
         public event System.Action<CellBagItemView<T>> onPointDown;
         public event System.Action<CellBagItemView<T>> onPointUp;
+
         public void SetData(CellBagItem<T> cellBagItem)
         {
             rectTransform.pivot = new Vector2(0, 1);

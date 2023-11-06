@@ -69,11 +69,11 @@ namespace CH.MultigridBag.Renderer
                     itemView.gameObject.SetActive(true);
                 }
 
-                var curBagData = bagData.curItemList[i];
-                itemView.SetData(curBagData);
-                itemView.transform.localPosition = BagRendererMainSetting.IndexPosToCurLocalPosition(curBagData.startX, curBagData.startY);//+ new Vector3(-cellSize.x / 2.0f,  cellSize.y/2.0f);
+                var curCellItem = bagData.curItemList[i];
+                itemView.SetData(curCellItem);
+                itemView.transform.localPosition = BagRendererMainSetting.IndexPosToCurLocalPosition(curCellItem.startX, curCellItem.startY);//+ new Vector3(-cellSize.x / 2.0f,  cellSize.y/2.0f);
                 Vector2 cellSize = BagRendererMainSetting.SettingFile.cellNodeSize ;
-                Vector2Int curItemSizeInfo = new Vector2Int(curBagData.GetMultigridItem().Width, curBagData.GetMultigridItem().Height);
+                Vector2Int curItemSizeInfo = new Vector2Int(curCellItem.GetMultigridItem().Width, curCellItem.GetMultigridItem().Height);
                 //
                 itemView.SetRectSize(new Vector2(cellSize.x * curItemSizeInfo.x, cellSize.y * curItemSizeInfo.y) + BagRendererMainSetting.SettingFile.space * new Vector2(curItemSizeInfo.x - 1, curItemSizeInfo.y - 1));
             }
